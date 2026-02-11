@@ -117,3 +117,31 @@
                 this.style.transition = 'transform 0.8s ease';
             });
         });
+
+        (function(){
+    emailjs.init("SZoD1zqpx-oUAUZWQ"); 
+})();
+
+// Tunggu sampai DOM siap
+document.addEventListener("DOMContentLoaded", function() {
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+
+        emailjs.sendForm(
+            "service_fnlc315",
+            "template_3qurc43",
+            this
+        )
+        .then(function() {
+            alert("Message sent successfully!");
+            form.reset();
+        }, function(error) {
+            alert("Failed to send message. Please try again.");
+            console.log(error);
+        });
+    });
+
+});
