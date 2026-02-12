@@ -1,20 +1,24 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // ===============================
-    // Header scroll effect
-    // ===============================
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
+    /* =========================================
+       NAVBAR SCROLL EFFECT
+    ========================================= */
+    const navbar = document.querySelector(".navbar");
+
+    window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
-            header.classList.add('header-scrolled');
+            navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.08)";
+            navbar.style.background = "rgba(255,255,255,0.95)";
         } else {
-            header.classList.remove('header-scrolled');
+            navbar.style.boxShadow = "0 5px 20px rgba(0,0,0,0.05)";
+            navbar.style.background = "rgba(255,255,255,0.9)";
         }
     });
 
-    // ===============================
-    // Scroll animations
-    // ===============================
+
+    /* =========================================
+       SCROLL ANIMATION
+    ========================================= */
     const fadeElements = document.querySelectorAll('.fade-in');
 
     const appearOnScroll = new IntersectionObserver(function(entries) {
@@ -30,14 +34,16 @@ document.addEventListener("DOMContentLoaded", function() {
         appearOnScroll.observe(element);
     });
 
-    // ===============================
-    // Product filtering
-    // ===============================
+
+    /* =========================================
+       PRODUCT FILTER
+    ========================================= */
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
+
             filterButtons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
 
@@ -53,35 +59,50 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // ===============================
-    // Mobile menu toggle
-    // ===============================
+
+    /* =========================================
+       MOBILE MENU TOGGLE (NEW SYSTEM)
+    ========================================= */
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
 
     mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
 
-        mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+        mobileNav.classList.toggle('show');
+
+        mobileMenuBtn.innerHTML = mobileNav.classList.contains('show')
             ? '<i class="fas fa-times"></i>'
             : '<i class="fas fa-bars"></i>';
+
+        document.body.style.overflow = mobileNav.classList.contains('show')
+            ? 'hidden'
+            : 'auto';
     });
 
-    // ===============================
-    // Smooth scrolling
-    // ===============================
+    // Close mobile when clicking link
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            mobileNav.classList.remove('show');
+            mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = 'auto';
+        });
+    });
+
+
+    /* =========================================
+       SMOOTH SCROLL
+    ========================================= */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
 
             const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
+            if (targetId === '#') return;
 
             const targetElement = document.querySelector(targetId);
 
-            if(targetElement) {
-                navLinks.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            if (targetElement) {
+                e.preventDefault();
 
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
@@ -91,17 +112,19 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // ===============================
-    // EmailJS Init
-    // ===============================
+
+    /* =========================================
+       EMAILJS INIT
+    ========================================= */
     emailjs.init("SZoD1zqpx-oUAUZWQ");
 
-    // ===============================
-    // Form Submission (EMAILJS)
-    // ===============================
+
+    /* =========================================
+       FORM SUBMIT (EMAILJS)
+    ========================================= */
     const form = document.getElementById("contactForm");
 
-    form.addEventListener("submit", function(e){
+    form.addEventListener("submit", function(e) {
         e.preventDefault();
 
         emailjs.sendForm(
@@ -112,7 +135,8 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(function() {
             alert("Message sent successfully!");
             form.reset();
-        }, function(error) {
+        })
+        .catch(function(error) {
             alert("Failed to send message.");
             console.log(error);
         });

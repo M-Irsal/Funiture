@@ -9,64 +9,96 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header id="header">
-        <div class="container">
-            <nav class="nav-container">
-                <a href="#" class="logo">
-                    <i class="fas fa-couch"></i>
-                    RZ Funiture
-                </a>
-                
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#products">Products</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                
-                <button class="mobile-menu-btn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+  <!-- Navbar -->
+<nav class="navbar">
+    <div class="nav-container">
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content fade-in">
-                <h1 class="hero-title">Crafting Modern Comfort with Timeless Design</h1>
-                <p class="hero-subtitle">CV. RZ Funiture, custom 3D-designed furniture that transforms spaces. Our handcrafted pieces blend modern aesthetics with functional comfort for your home or office.</p>
-                
-                <div class="hero-btns">
-                    <a href="#products" class="btn btn-primary">Explore Collection</a>
-                    <a href="#contact" class="btn btn-secondary">Book a Consultation</a>
-                </div>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>25+</h3>
-                        <p>Years Experience</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>1500+</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>98%</h3>
-                        <p>Client Satisfaction</p>
-                    </div>
-                </div>
+        <!-- Logo -->
+        <a href="#" class="logo">
+            <span class="logo-dot"></span>
+            RZ Furniture
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#products" class="nav-link">Products</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#services" class="nav-link">Services</a></li>
+            <li><a href="#gallery" class="nav-link">Gallery</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- Tools (optional, bisa hapus kalau tidak pakai) -->
+        <div class="nav-tools">
+            <button class="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Button -->
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+    </div>
+</nav>
+
+<!-- Mobile Navigation -->
+<div class="mobile-nav">
+    <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#products" class="mobile-nav-link">Products</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+</div>
+
+  <!-- Hero Section -->
+<section id="home" class="hero">
+    <div class="container hero-container">
+
+        <div class="hero-content fade-in">
+            <h1 class="hero-title">
+                Crafting Modern Comfort with Timeless Design
+            </h1>
+
+            <p class="hero-subtitle">
+                CV. RZ Furniture creates custom 3D-designed furniture that transforms spaces. 
+                Our handcrafted pieces blend modern aesthetics with functional comfort.
+            </p>
+
+            <div class="hero-btns">
+                <a href="#products" class="btn btn-primary">Explore Collection</a>
+                <a href="#contact" class="btn btn-secondary">Book a Consultation</a>
             </div>
-            
-            <div class="furniture-3d-container">
-                <img src="img/Casa interior HD 8K papel de parede Imagem fotográfica _ imagem Premium gerada com IA.jfif" alt="">
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>1500+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Client Satisfaction</p>
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- Image -->
+        <div class="hero-image">
+            <img src="img/Casa interior HD 8K papel de parede Imagem fotográfica _ imagem Premium gerada com IA.jfif" 
+                 alt="Modern Furniture">
+        </div>
+
+    </div>
+</section>
 
     <!-- Products Section -->
     <section id="products" class="products">
